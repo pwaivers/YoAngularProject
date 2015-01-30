@@ -15,6 +15,6 @@ describe('Directive: waivRepeat', function () {
   it('should make hidden element visible', inject(function ($compile) {
     element = angular.element('<div waiv-repeat></div>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('<div></div>');
+    expect(element.text()).toBe('');
   }));
 });
