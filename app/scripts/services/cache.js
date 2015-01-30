@@ -8,26 +8,18 @@
  * Factory in the yoAngularSandboxApp.
  */
 angular.module('yoAngularSandboxApp')
-  .factory('cache', function () {
+  .service('cache', ['lodash', function (_) {
 
-    // Public API here
-    var CacheService = function(){
-      var that = this;
-			
-			that.getCache = function () {
-        
-      };
-			
-			that.pushToCache = function () {
-				
-			};
-			
-			that.pullFromCache = function () {
-				
-			};
-    };
+    var that = this;
+		
+		var cache = {};
 	
+		that.getCache = function () { return cache; };
+		that.pushToCache = function (obj) {
+				_.each(obj, function(key, value) {
+					cache[key] = value;
+				});
+		};
+		that.pullFromCache = function () {};
 	
-	return new CacheService();
-	
-  });
+  }]);
